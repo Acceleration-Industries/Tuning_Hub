@@ -1,12 +1,10 @@
 
 .shop-header {
-    background-image: url("https://wallpapercave.com/wp/wp13049756.jpg");
+    background-image: url("/static/images/Tuning_Hub.jpg");
+    background-color: black;
     background-size: cover;
-    width: 1533px;
-    height: 570px;
-    color: white;
-    align-items: center;
     background-position: center;
+    height: 841px;
 }
 
 .btn-outline-dark {
@@ -24,7 +22,7 @@ color: gold !important;
 }
 
 .navbar {
-    background-color: #000000;
+background-color: #000000;
 }
 
 .navbar-nav .nav-link:hover {
@@ -35,9 +33,9 @@ color: gold !important;
     color: black !important;
    text-shadow: 0 0 1px black, 0 0 2px gold, 0 0 3px gold, 0 0 4px gold,
    0 0 5px gold, 0 0 6px gold, 0 0 7px gold;
--webkit-text-stroke-width: 1.5px;
+-webkit-text-stroke-width: 1px;
 -webkit-text-stroke-color: black;
-font-size: 20px;
+font-size: 21px;
 }
 
 .navbar-nav {
@@ -59,15 +57,18 @@ font-size: 20px;
 
 body {
     font-family: 'Luminari', sans-serif;
-    background-color: #1a1a1a;
+    background-color: black;
     margin: 0;
     padding: 0;
     color: #ffffff;
-}
 
+}
 .page-wrap {
-    width: 1536px;
-    margin: 0 auto;
+    width: 100%;
+    background-size: cover;
+    background-color: black;
+    border-left: 1px solid black; 
+    border-right: 1px solid black; 
 }
 
 .navbar {
@@ -96,8 +97,6 @@ body {
 } 
 
 .col-3.ms-5.d-flex.flex-column.justify-content-center h1 {
-
-   
     text-shadow: 0 0 10px black, 0 0 15px black, 0 0 20px black, 0 0 25px black,
     0 0 30px black, 0 0 35px black, 0 0 40px black;
     -webkit-text-stroke-width: .4px;
@@ -112,6 +111,7 @@ margin-top: 35px;
     0 0 30px black, 0 0 35px black, 0 0 40px black;
     -webkit-text-stroke-width: .4px;
     -webkit-text-stroke-color: black;
+    text-size-adjust: 38px;
 }
 
 .btn.btn-outline-dark {
@@ -141,7 +141,7 @@ div.row.bg-dark.p-3.shop-stats {
     height: 56px;
   }
 
-  .btn.btn-outline-dark:hover {
+.btn.btn-outline-dark:hover {
 color: white !important;
 background-color: gold;
 text-shadow: 0 0 1px black, 0 0 15px black, 0 0 20px black, 0 0 25px black,
@@ -149,3 +149,161 @@ text-shadow: 0 0 1px black, 0 0 15px black, 0 0 20px black, 0 0 25px black,
 -webkit-text-stroke-width: .5px;
     -webkit-text-stroke-color: black;
   }
+  
+/* Register Now Page, Register Now! Text */
+form.row.g-3 h3 {
+    text-shadow: 0 0 10px black, 0 0 15px black, 0 0 20px black, 0 0 25px black,
+    0 0 30px black, 0 0 35px black, 0 0 40px black;
+    -webkit-text-stroke-width: .4px;
+    -webkit-text-stroke-color: black;
+}
+
+/* Register Now Border (form)*/
+form.row.g-3 {
+    border: 5px solid black;
+    padding: 3.5px;
+}
+
+/* Entire Register Now Box*/
+div.row.mt-5.p-5.shadow.rounded.border.border-primary.w-75 {
+    border: 5px solid black;
+    background-image: url(/static/images/Tuning_Hub.jpg);
+    background-size: inherit;
+    {% exclude sign_in.html %}
+}
+
+.custom-border {
+    border-color: black !important;
+}
+
+.btn.btn-primary {
+    background-color: black !important;
+    color: black !important;
+    border: black !important;
+    height: 35px !important;
+    margin-bottom: 2px;
+    text-size-adjust: 24px;
+    text-shadow: 0 0 1px black, 0 0 2px gold, 0 0 3px gold, 0 0 4px gold,
+    0 0 5px gold, 0 0 6px gold, 0 0 7px gold;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+    height: auto;
+}
+
+.btn.btn-primary:hover {
+    color: white !important;
+    background-color: gold;
+    text-shadow: 0 0 1px black, 0 0 15px black, 0 0 20px black, 0 0 25px black,
+    0 0 30px black, 0 0 35px black, 0 0 40px black;
+    -webkit-text-stroke-width: .5px;
+        -webkit-text-stroke-color: black;
+}
+
+.container.d-flex.justify-content-center.align-items-center {
+    background-color: black !important;
+}
+
+a.btn.btn-outline-dark.mt-3 {
+    height: 70px!important;
+    width: 150px;
+}
+
+.btn.btn-outline-dark.mt-3(s) {
+    height: 50px!important;
+}
+
+span.err-msg.btn-danger.p-2.opacity-50.rounded {
+    background-color: black !important;
+    color: white !important;
+    border: black !important;
+    margin-bottom: 2px;
+    text-shadow: 0 0 20px black, 0 0 20px black, 0 0 30px black, 0 0 4px black,
+    0 0 5px black, 0 0 6px black, 0 0 7px black;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: black;
+}
+
+.btn.btn-outline-dark.mt-3 (1) {
+    height: 20px!important;
+}
+
+.col-md-6 label {
+    color: white !important;
+    border: black !important;
+    margin-bottom: 2px;
+    text-shadow: 0 0 20px black, 0 0 20px black, 0 0 30px black, 0 0 4px black,
+    0 0 5px black, 0 0 6px black, 0 0 7px black;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: black;
+
+}
+
+.col-12 label {
+    color: white !important;
+    border: black !important;
+    margin-bottom: 2px;
+    text-shadow: 0 0 20px black, 0 0 20px black, 0 0 30px black, 0 0 4px black,
+    0 0 5px black, 0 0 6px black, 0 0 7px black;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: black;
+}
+
+.col-6 label {
+    color: white !important;
+    border: black !important;
+    margin-bottom: 2px;
+    text-shadow: 0 0 20px black, 0 0 20px black, 0 0 30px black, 0 0 4px black,
+    0 0 5px black, 0 0 6px black, 0 0 7px black;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: black;
+}
+
+div.row.mt-5.p-5.shadow.rounded.border.border-primary.w-75 {
+    border: 5px solid black;
+}
+
+form.row.g-3 {
+    max-width: 330px;
+    justify-content: left;
+    border-color: white;
+}
+.container.d-flex.justify-content-center.align-items-center {
+}
+
+a.card-link.btn {
+    background-color: black !important;
+    color: black !important;
+    text-size-adjust: 40px;
+    text-shadow: 0 0 1px black, 0 0 2px gold, 0 0 3px gold, 0 0 4px gold,
+    0 0 5px gold, 0 0 6px gold, 0 0 7px gold;
+    -webkit-text-stroke-width: .4px;
+    -webkit-text-stroke-color: black;
+}
+
+a.btn.btn-outline-dark.mt-3 {
+    height:content !important;
+}
+
+.sign_in_button_update {
+    height: fit-content;
+}
+
+.card-body .card-title,
+.card-body .card-text {
+    color: black;
+}
+
+.col-12.text-align {
+    color: white !important;
+        text-shadow: 0 0 1px black, 0 0 2px black, 0 0 3px black, 0 0 4px black, 0 0 5px black, 0 0 6px black, 0 0 7px black;
+        -webkit-text-stroke-width: .4px;
+        -webkit-text-stroke-color: black;
+        margin-left: 27px;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+}
+
