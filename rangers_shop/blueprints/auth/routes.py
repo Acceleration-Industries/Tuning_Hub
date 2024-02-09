@@ -2,20 +2,16 @@ from flask import Blueprint, render_template, request, redirect, flash
 from werkzeug.security import check_password_hash 
 from flask_login import login_user, logout_user 
 
-
 # internal imports
 from rangers_shop.models import User, db # grabbing our class so we can instantiate User objects
 from rangers_shop.forms import RegisterForm, LoginForm 
 
-
 # instantiate our Blueprint
 auth = Blueprint('auth', __name__, template_folder='auth_templates')
-
 
 # our routes for sign up, sign in, logout
 @auth.route('/signup', methods=['GET', 'POST']) #GET request to SEE the form, POST request to POST data to our database 
 def signup():
-    
     # instantiate our RegisterForm class
     registerform = RegisterForm()
     
@@ -45,15 +41,13 @@ def signup():
         db.session.add(user)
         db.session.commit()
         
-        
         flash(f"You have successfully registered user {username}", category='success')
         return redirect('/signin')
     
     return render_template('sign_up.html', form=registerform ) #passing loginform object as form in html 
-    
+
 @auth.route('/signin', methods=['GET', 'POST'])
 def signin():
-    
     # instantiate LoginForm
     loginform = LoginForm()
     
@@ -77,7 +71,7 @@ def signin():
     
     # if its a 'GET' request we need to display this form to the user
     return render_template('sign_in.html', form=loginform ) #passing loginform object as form in html 
-    
+
 @auth.route('/logout')
 def logout():
     logout_user() #current_user is now None

@@ -1,25 +1,32 @@
-# This is our configuration file to configure Flask to our app location & variables needed to run Flask
+# our configuration file which configures our flask app aka tells it all the specific details
+# it needs to know about this specific app via variables
 
-import os  # operating system 
-from dotenv import load_dotenv  # allows us to load our environment variables (variables needed to run application)
+from datetime import timedelta
+import os #operatin system, necessary for python applications so python can be interpreted on any os
+from dotenv import load_dotenv #allows us to load our environment variables from a different file (so we can secure them)
 
-# Establish our base directory so whenever we use "." to reference any location in our app it knows we are referencing
-# rangers_shop folder 
+
+#establish our base directory so when we use "." in our app it knows that rangers_shop is our base dir
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# Need to establish where our environment variables are coming from (this file will be hidden from GitHub)
+
+#establish where our environment variables are coming from
 load_dotenv(os.path.join(basedir, '.env'))
 
-# Create our Config class 
-class Config():
 
+#create our Config class
+class Config():
+    
     """
     Create Config class which will setup our configuration variables.
-    Using Environment variables where available other create config variables. 
+    Using environment variables where available otherwise create config variables. 
     """
-
-    FLASK_APP = os.environ.get('FLASK_APP')  # looking for key of FLASK_APP in our environment variable location (.env)
-    FLASK_ENV = os.environ.get('FLASK_ENV') 
+    
+    FLASK_APP = os.environ.get('FLASK_APP') #looking for key of FLASK_APP in .env file
+    FLASK_ENV = os.environ.get('FLASK_ENV')
     FLASK_DEBUG = os.environ.get('FLASK_DEBUG')
     SECRET_KEY = os.environ.get('SECRET_KEY') or '__porsche__'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')  # rangers_shop folder
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False # we dont want a messsage every single time our database changes
+    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(days=365)

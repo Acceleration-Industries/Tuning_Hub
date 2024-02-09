@@ -1,46 +1,17 @@
-<div class="page-wrap">
-    <div class="container d-flex justify-content-center align-items-center">
-        <div class="row mt-5 mb-5 p-5 shadow rounded border border-primary w-75">
-            <div class="col">
-                <h3>Update {{ product.name }}</h3>
-                <div class="product-image">
-                    <img src="{{ product.image }}" alt="Product Image" class="img-fluid">
-                </div>
-                <form method="POST">
-                    <div class="col-12">
-                        {{ form.name.label }}
-                        {{ form.name(class='form-control mt-2', placeholder='Item Name') }}
-                        {% for error in form.name.errors %}
-                            <span class="err-msg">{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class="col-12">
-                        {{ form.description.label }}
-                        {{ form.description(class='form-control mt-2', placeholder='Item Description') }}
-                        {% for error in form.description.errors %}
-                            <span class="err-msg">{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class="col-12">
-                        {{ form.price.label }}
-                        {{ form.price(class='form-control mt-2', placeholder='Item Price') }}
-                        {% for error in form.price.errors %}
-                            <span class="err-msg">{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class="col-12">
-                        {{ form.quantity.label }}
-                        {{ form.quantity(class='form-control mt-2', placeholder='Item Quantity') }}
-                        {% for error in form.quantity.errors %}
-                            <span class="err-msg">{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class="col-12">
-                        {{ form.submit(class='btn btn-primary') }}
-                    </div>
-                </form>
-            </div>
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="row mt-5 mb-5 p-5 shadow rounded border border-primary w-75">
+        <div class="col">
+            <h3>Update {{ product.name }}</h3>
+            {% include 'productform.html' %}
         </div>
     </div>
 </div>
 
+
+{% endblock content %}
