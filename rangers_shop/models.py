@@ -4,8 +4,6 @@ from flask_login import UserMixin, LoginManager #helping us load a user as our c
 from datetime import datetime #put a timestamp on any data we create (Users, Products, etc)
 import uuid #makes a unique id for our data (primary key)
 from flask_marshmallow import Marshmallow
-
-
 #internal imports
 from .helpers import get_image 
 
@@ -174,30 +172,24 @@ class ProdOrder(db.Model):
         self.price = quantity * price #this total price for that product multiplied by quantity purchased 
         return self.price
     
-
     def update_quantity(self, quantity):
 
         self.quantity = int(quantity)
         return self.quantity
     
-
 class Order(db.Model):
     order_id = db.Column(db.String, primary_key=True)
     order_total = db.Column(db.Numeric(precision=10, scale=2), nullable = False)
     date_created = db.Column(db.DateTime, default = datetime.utcnow())
     prodord = db.relationship('ProdOrder', backref = 'order', lazy=True) #establishing that relationship, NOT A COLUMN
 
-
-
     def __init__(self):
         self.order_id = self.set_id()
         self.order_total = 0.00
 
-    
     def set_id(self):
         return str(uuid.uuid4())
     
-
     def increment_ordertotal(self, price):
 
         self.order_total = float(self.order_total) #just making sure its a float 
@@ -212,29 +204,16 @@ class Order(db.Model):
 
         return self.order_total
     
-
     def __repr__(self):
         return f"<Order: {self.order_id}>"
 
-
-
-
-
-    
-
-
-
-
 # creating our Schema class (Schema essentially just means what our data "looks" like, and our 
 # data needs to look like a dictionary (json) not an object)
-
 
 class ProductSchema(ma.Schema):
 
     class Meta:
         fields = ['prod_id', 'name', 'image', 'description', 'price', 'quantity']
-
-
 
 #instantiate our ProductSchema class so we can use them in our application
 product_schema = ProductSchema() #this is 1 singular product

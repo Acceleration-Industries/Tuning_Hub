@@ -1,50 +1,47 @@
+import decimal
 import requests
 import requests_cache
+import json
 
-# Install and configure requests-cache to cache API responses
+
+# setup our api cache location (thhis will be a temporary database storing our api calls)
 requests_cache.install_cache('image_cache', backend='sqlite')
 
+
+
+
+
 def get_image(search):
-    url = "https://google-search72.p.rapidapi.com/imagesearch/"
-    querystring = {
-        "q": search,
-        "gl": "us",
-        "lr": "lang_en",
-        "num": "10",
-        "start": "0"
-    }
+    # 4 parts to every api
+    # url Required
+    # queries/paremeters Optional
+    # headers/authorization Optional
+    # body/posting Optional
+    
+    url = "https://google-search72.p.rapidapi.com/imagesearch"
+
+    querystring = {"q": search,"gl":"us","lr":"lang_en","num":"10","start":"0"}
+
     headers = {
-         'X-RapidAPI-Key': '2e0b32e3admsh9e5edb2fe19207bp1d681djsn63057cdf50a8',
-    'X-RapidAPI-Host': 'google-search72.p.rapidapi.com'
+        "X-RapidAPI-Key": "9aac146b28msha98b54ca2f39ee0p16455djsn9a0f2e345df6",
+        "X-RapidAPI-Host": "google-search72.p.rapidapi.com"
     }
 
-    try:
-        # Make the API request
-        response = requests.get(url, headers=headers, params=querystring)
-        # Check if the request was successful (status code 200)
-        if response.status_code == 200:
-            # Parse the JSON response
-            data = response.json()
-            # Check if 'items' key is present in the response data
-            if 'items' in data:
-                # Extract the URL of the first image from the response
-                img_url = data['items'][0].get('originalImageUrl', '')
-                return img_url
-            else:
-                # If 'items' key is not present, return None
-                return None
-        else:
-            # If the request was not successful, print an error message and return None
-            print(f"Error: {response.status_code}")
-            return None
-    except requests.RequestException as e:
-        # If an exception occurs during the request, print the exception and return None
-        print(f"Request Exception: {e}")
-        return None
+    response = requests.get(url, headers=headers, params=querystring)
 
-# Example usage:
-# image_url = get_image('cats')
-# if image_url:
-#     print("Image URL:", image_url)
-# else:
-#     print("Failed to fetch image URL.")
+    data = response.json()
+    
+    img_url = ''
+    
+    if 'items' in data.keys():
+        img_url = data['items'][0]['originalImageUrl']
+        
+    return img_url
+
+
+
+class JSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, decimal.Decimal): #if the object is a decimal we are going to encode it 
+                return str(obj)
+        return json.JSONEncoder(JSONEncoder, self).default(obj) #if not the JSONEncoder from json class can handle it

@@ -5,14 +5,11 @@ from datetime import timedelta
 import os #operatin system, necessary for python applications so python can be interpreted on any os
 from dotenv import load_dotenv #allows us to load our environment variables from a different file (so we can secure them)
 
-
 #establish our base directory so when we use "." in our app it knows that rangers_shop is our base dir
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
 #establish where our environment variables are coming from
 load_dotenv(os.path.join(basedir, '.env'))
-
 
 #create our Config class
 class Config():
