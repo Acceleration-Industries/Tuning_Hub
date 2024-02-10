@@ -301,7 +301,11 @@ a.btn.btn-outline-dark.mt-3 {
 }
 
 .success-message {
-    color: green;
-    font-weight: bold;
-    font-size: 18px;
+    background-color: white!important;
+    color: black !important;
+    text-size-adjust: 40px;
+    text-shadow: 0 0 1px black, 0 0 2px gold, 0 0 3px gold, 0 0 4px gold,
+    0 0 5px gold, 0 0 6px gold, 0 0 7px gold;
+    -webkit-text-stroke-width: .4px;
+    -webkit-text-stroke-color: black;
 }
